@@ -1,6 +1,7 @@
 package ru.alishev.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.alishev.springcourse.archive.TestBean;
 
 public class TestSpring {
     public static void main(String[] args) {
@@ -8,8 +9,11 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        TestBean testBean = context.getBean("testBean", TestBean.class);
-        System.out.println(testBean.getName());
+        Music music1 = context.getBean("musicBean", Music.class);
+
+        MusicPlayer musicPlayer = new MusicPlayer(music1);
+
+        musicPlayer.playMusic();
 
         context.close();
     }
