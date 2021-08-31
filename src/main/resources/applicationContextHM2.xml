@@ -11,4 +11,9 @@
           class="ru.alishev.springcourse.HM2.PhantasyMovie">
     </bean>
 
+    <bean id="videoPlayer"
+          class="ru.alishev.springcourse.HM2.VideoPlayer">
+          <constructor-arg ref="filmBean"/>
+    </bean>
+
 </beans>

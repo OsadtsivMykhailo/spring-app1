@@ -8,8 +8,9 @@ public class MainSpring {
                 "applicationContextHM2.xml"
         );
 
-        Video video = context.getBean("filmBean", Video.class);
-        VideoPlayer videoPlayer = new VideoPlayer(video);
+    //1    Video video = context.getBean("filmBean", Video.class);
+    //1    VideoPlayer videoPlayer = new VideoPlayer(video);
+        VideoPlayer videoPlayer = context.getBean("videoPlayer", VideoPlayer.class);
         videoPlayer.playVideo();
         context.close();
     }
