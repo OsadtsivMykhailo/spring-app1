@@ -1,7 +1,10 @@
 package ru.alishev.springcourse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
-    private Music music1;
+    private List<Music> musicList = new ArrayList<>();
 
     private String name;
     private int volume;
@@ -14,8 +17,8 @@ public class MusicPlayer {
     public MusicPlayer() {
     }
 
-    public void setMusic1(Music music1) {
-        this.music1 = music1;
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public String getName() {
@@ -35,6 +38,8 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        System.out.println("Playing: " + music1.getSong());
+        for (int i = 0; i < musicList.size(); i++) {
+            System.out.println("Playing: " + musicList.get(i).getSong());
+        }
     }
 }
