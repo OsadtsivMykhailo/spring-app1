@@ -7,6 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
     <bean id="musicBean"
           class="ru.alishev.springcourse.RockMusic">
     </bean>
@@ -15,8 +17,10 @@
         class="ru.alishev.springcourse.MusicPlayer">
         <property name="music1" ref="musicBean"/>
 <!-- 2       <constructor-arg ref="musicBean"/>-->
-        <property name="name" value="multiPlayer"/>
-        <property name="volume" value="50"/>
+<!-- 3       <property name="name" value="multiPlayer"/>-->
+<!-- 3       <property name="volume" value="50"/>-->
+             <property name="name" value="${musicPlayer.name}"/>
+             <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
