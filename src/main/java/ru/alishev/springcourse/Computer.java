@@ -9,6 +9,8 @@ public class Computer {
     @Autowired
     private MusicPlayer musicPlayer;
 
+    private MusicGenre musicGenre = MusicGenre.rockMusic;
+
 
     public Computer(MusicPlayer musicPlayer) {
         this.id = 1;
@@ -19,7 +21,7 @@ public class Computer {
     public String toString() {
         return "Computer{" +
                 "id=" + id +
-                " " + musicPlayer.playMusic() +
+                " " + musicPlayer.playMusic(musicGenre) +
                 '}';
     }
 }

@@ -9,9 +9,11 @@ import java.util.List;
 @Component
 public class MusicPlayer {
 //    private List<Music> musicList = new ArrayList<>();
+    @Autowired
+    private ClassicalMusic music1;
+    @Autowired
+    private RockMusic music2;
 
-    private  Music music1;
-    private  Music music2;
 //    private  ClassicalMusic classicalMusic;
 //    private  RockMusic rockMusic;
 
@@ -20,12 +22,7 @@ public class MusicPlayer {
 ////        this.classicalMusic = classicalMusic;
 ////        this.rockMusic = rockMusic;
 //    }
-    @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("classicalMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
-    }
+
 
 
     //    private String name;
@@ -64,9 +61,13 @@ public class MusicPlayer {
 //        this.volume = volume;
 //    }
 
-    public String playMusic() {
+    public String playMusic(MusicGenre genre) {
       //  for (int i = 0; i < musicList.size(); i++) {
-        return "Playing: " + music1.getSong() + ", " + music2.getSong();
+        if (genre == MusicGenre.rockMusic) {
+            return "Playing: " + music2.getSong();
+        } else if (genre == MusicGenre.classicalMusic) {
+            return "Playing: " + music1.getSong();
+        } else return "";
 //            System.out.println("Playing: " + classicalMusic.getSong());
 //            System.out.println("Playing: " + rockMusic.getSong());
         }

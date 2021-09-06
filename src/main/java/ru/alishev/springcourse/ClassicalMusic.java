@@ -2,8 +2,15 @@ package ru.alishev.springcourse;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 @Component
 public class ClassicalMusic implements Music {
+    final Random random = new Random();
+    private ArrayList<String> classicalMusicSongsList =
+            new ArrayList<>(Arrays.asList("ClasSong1", "ClasSong2", "ClasSong3"));
     private ClassicalMusic() {}
 
     public static ClassicalMusic getClassicalMusic() {
@@ -21,6 +28,6 @@ public class ClassicalMusic implements Music {
 
     @Override
     public String getSong() {
-        return "Hungarian Rhapsody";
+        return classicalMusicSongsList.get(random.nextInt(3));
     }
 }
