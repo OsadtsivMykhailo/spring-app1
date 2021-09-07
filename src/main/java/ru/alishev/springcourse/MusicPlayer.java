@@ -6,13 +6,19 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 //@Component
 public class MusicPlayer {
 //    private List<Music> musicList = new ArrayList<>();
 //    @Autowired
-    private ClassicalMusic classicalMusic;
-    //    @Autowired
-    private RockMusic rockMusic;
+//    private ClassicalMusic classicalMusic;
+//    //    @Autowired
+//    private RockMusic rockMusic;
+//
+//    private RapMusic rapMusic;
+
+    private List<Music> musicList = new ArrayList<>();
 
     @Value("${musicPlayer.name}")
     private String name;
@@ -20,6 +26,9 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
+    }
 //    private  ClassicalMusic classicalMusic;
 //    private  RockMusic rockMusic;
 
@@ -67,13 +76,17 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public String playMusic(MusicGenre genre) {
+    public String playMusic() {
       //  for (int i = 0; i < musicList.size(); i++) {
-        if (genre == MusicGenre.rockMusic) {
-            return "Playing: " + rockMusic.getSong();
-        } else if (genre == MusicGenre.classicalMusic) {
-            return "Playing: " + classicalMusic.getSong();
-        } else return "";
+        Random random = new Random();
+        return "Playing: " + (musicList.get(random.nextInt(3))).getSong();
+//        if (genre == MusicGenre.rockMusic) {
+//            return "Playing: "; //+ rockMusic.getSong();
+//        } else if (genre == MusicGenre.classicalMusic) {
+//            return "Playing: "; //+ classicalMusic.getSong();
+//        } else if (genre == MusicGenre.rapMusic) {
+//            return "Playing: "; //+ rapMusic.getSong();
+//        } else return "";
 //            System.out.println("Playing: " + classicalMusic.getSong());
 //            System.out.println("Playing: " + rockMusic.getSong());
         }
