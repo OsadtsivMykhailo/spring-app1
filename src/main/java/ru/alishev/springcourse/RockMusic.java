@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-@Component
+//@Component
 public class RockMusic implements Music{
     final Random random = new Random();
     private ArrayList<String> rockMusicSongsList =

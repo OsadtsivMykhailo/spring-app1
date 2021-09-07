@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+//@Component
 public class MusicPlayer {
 //    private List<Music> musicList = new ArrayList<>();
-    @Autowired
-    private ClassicalMusic music1;
-    @Autowired
-    private RockMusic music2;
+//    @Autowired
+    private ClassicalMusic classicalMusic;
+    //    @Autowired
+    private RockMusic rockMusic;
 
     @Value("${musicPlayer.name}")
     private String name;
@@ -70,9 +70,9 @@ public class MusicPlayer {
     public String playMusic(MusicGenre genre) {
       //  for (int i = 0; i < musicList.size(); i++) {
         if (genre == MusicGenre.rockMusic) {
-            return "Playing: " + music2.getSong();
+            return "Playing: " + rockMusic.getSong();
         } else if (genre == MusicGenre.classicalMusic) {
-            return "Playing: " + music1.getSong();
+            return "Playing: " + classicalMusic.getSong();
         } else return "";
 //            System.out.println("Playing: " + classicalMusic.getSong());
 //            System.out.println("Playing: " + rockMusic.getSong());

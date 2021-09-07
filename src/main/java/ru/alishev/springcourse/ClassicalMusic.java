@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-@Component
-@Scope("singleton")
+//@Component
+//@Scope("singleton")
 public class ClassicalMusic implements Music {
     final Random random = new Random();
     private ArrayList<String> classicalMusicSongsList =
